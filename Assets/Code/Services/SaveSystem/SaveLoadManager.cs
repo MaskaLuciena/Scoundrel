@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SaveLoadManager
 {
@@ -42,10 +42,19 @@ public class SaveLoadManager
         }
     }
     
-    //Полное удаление сейва (после смерти/конца рана).
+    // Полное удаление всего прогресса (мета + ран)
     public void ClearSave()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
+
+    // Очистка только данных текущего забега
+    public void ClearRunData()
+    {
+        PlayerPrefs.DeleteKey("PlayerState");
+        PlayerPrefs.DeleteKey("DeckState");
+        PlayerPrefs.DeleteKey("RoomState");
         PlayerPrefs.Save();
     }
 }

@@ -34,19 +34,19 @@ public class RunEndService : IInitializable
 
     private void EndRun()
     {
-        Debug.Log("🏁 Run ended!");
-
-        //Берём количество зачищенных комнат
+        // Берём количество зачищенных комнат
         int roomsCleared = _session.RoomsCleared;
         int gainedXp = roomsCleared * 10;
 
         if (gainedXp > 0)
         {
             _meta.AddXP(gainedXp);
-            Debug.Log($"[Meta] Gained {gainedXp} XP from {roomsCleared} cleared rooms");
         }
-        
-        _saveManager.ClearSave();
+
+        // сохраняем мету, очищаем только ран
+        _saveManager.SaveGame();
+        _saveManager.ClearRunData();
+
         _sceneService.LoadMenuScene();
     }
 }

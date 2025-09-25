@@ -18,13 +18,9 @@ public class PlayerController : MonoBehaviour
     private Dictionary<CardType, ICardHandler> _handlers;
 
     [Inject]
-    public void Construct(
-        PlayerStatsModel statsModel,
-        DeckModel deckModel,
-        SaveLoadManager saveManager,
-        RoomModel roomModel,
-        RunPointsService runPointsService
-    )
+    public void Construct(PlayerStatsModel statsModel, DeckModel deckModel,
+                          SaveLoadManager saveManager, RoomModel roomModel,
+                          RunPointsService runPointsService)
     {
         _statsModel = statsModel;
         _deckModel = deckModel;
