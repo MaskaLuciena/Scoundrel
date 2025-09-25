@@ -22,7 +22,7 @@ public class GameInitializer : IInitializable
 
     public void Initialize()
     {
-        // 🟢 всегда чистим сессию при старте
+        //всегда чистим сессию при старте
         _runSession.Reset();
 
         if (_saveManager.LoadFromSave)

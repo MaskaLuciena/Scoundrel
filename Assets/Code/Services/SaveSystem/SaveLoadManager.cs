@@ -28,7 +28,6 @@ public class SaveLoadManager
         {
             loader.SaveGame(_context);
         }
-
         _context.Repository.SaveState();
     }
 
@@ -40,13 +39,6 @@ public class SaveLoadManager
         {
             loader.LoadGame(_context);
         }
-    }
-    
-    // Полное удаление всего прогресса (мета + ран)
-    public void ClearSave()
-    {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
     }
 
     // Очистка только данных текущего забега
